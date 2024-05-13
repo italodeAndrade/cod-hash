@@ -1,20 +1,24 @@
+#Ítalo de Andrade Teles Ocimar Lima
 import getpass
 import hashlib
 def logar_usuario(nome_usuario, senha):
     with open('usuarios.txt', 'r') as login_arquivo:
         linhas = login_arquivo.readlines()
         for linha in linhas:
-            partes = linha.strip().split(',')
+            partes = linha.strip().split(', ')
             usuario = None
             senha_usuario = None
             for parte in partes:
                 if 'usuario' in parte:
-                    usuario = parte.split(':')[1].strip()
+                    usuario = parte.split(': ')[1].strip()
                 elif 'senha' in parte:
-                    senha_usuario = parte.split(':')[1].strip()
-            if usuario == nome_usuario and senha_usuario == senha:
-                return True
+                    senha_usuario = parte.split(': ')[1].strip()
+            if usuario == nome_usuario:
+                senha_codificada = hashlib.sha256(senha.encode('utf-8')).hexdigest()
+                if senha_usuario == senha_codificada:
+                    return True
     return False
+
 
 def cadastrar_usuario():
     print("insira usuario e senha com apenas 4 caracteres")
@@ -70,7 +74,7 @@ while True:
             print('(ᴗ͈  ̫ᴗ͈*)')        
             print("(UU   )ଓ ")
             print("  U U")
-            print("1-sim \n 2-não")
+            print("1-sim \n2-não")
             esc=int(input("sair?"))
             while esc==2:
                 print("=-=-=-=-=-=-=-=-=-=-=-=-=-=")
