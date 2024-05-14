@@ -1,13 +1,10 @@
-#Ítalo de Andrade Teles Ocimar Lima
-#Theo Machado Ravaglia
 import hashlib
 import time
-from array import array
 
 def deco_senha(senha_hash):
     inicio = time.time()
 
-    with open('wordlist.txt', 'r', encoding='utf-8', errors='ignore') as arquivo:
+    with open('wordlist1.txt', 'r', encoding='utf-8', errors='ignore') as arquivo:
         linhas = arquivo.readlines()
         for linha in linhas:
             senha_wrd = linha.strip()
@@ -23,25 +20,22 @@ def deco_senha(senha_hash):
                 return senha_wrd
     print("Senha não encontrada na wordlist.")
 
-
-
-            
-
-
 def ler_wordlist():
     with open('usuarios.txt', 'r') as arquivo_us:
         linhas = arquivo_us.readlines()
         for linha in linhas:
             partes = linha.strip().split(', ')
+            usuario = None
+            senha_usuario = None
             for parte in partes:
                 if parte.startswith('usuario:'):
                     usuario = parte.split(': ')[1]
                 elif parte.startswith('senha:'):
                     senha_usuario = parte.split(': ')[1]
-            print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
-            print("Usuário:", usuario)
-            print("Senha:", senha_usuario)
-            deco_senha(senha_usuario)
-
+            if usuario and senha_usuario:
+                print("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=")
+                print("Usuário:", usuario)
+                print("Senha:", senha_usuario)
+                deco_senha(senha_usuario)
 
 ler_wordlist()
