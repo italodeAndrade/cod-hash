@@ -1,5 +1,5 @@
 #Ítalo de Andrade Teles Ocimar Lima
-
+#Theo Machado Ravaglia
 import hashlib
 import time
 from array import array

@@ -1,3 +1,0 @@
-usuario: joao, senha: 0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c
-usuario: talo, senha: 2830632df48c7182fcd48f228ce49afdec6b3ac8f776aa091c893b9ee8d4c562
-usuario: cara, senha: 8b88c35eb7ba86b91d8c4b69d468df3d24931071206c07cc61c3aaff03aaea88

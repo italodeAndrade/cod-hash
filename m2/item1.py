@@ -1,4 +1,5 @@
 #Ítalo de Andrade Teles Ocimar Lima
+#Theo Machado Ravaglia
 import getpass
 import hashlib
 def logar_usuario(nome_usuario, senha):
